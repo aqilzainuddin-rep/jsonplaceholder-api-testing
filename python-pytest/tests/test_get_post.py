@@ -18,6 +18,13 @@ def test_get_post():
     assert data["title"] # Check the title and make sure it is not empty
     assert data["body"] # Check the body and make sure it is not empty
 
-    # 5. Display the response information for debugging purposes
-    print("Status code:", response.status_code) # Print the status code
-    print("Response body:", data) # Print the response body 
+def test_get_nonexistent_post():
+
+    # 1. Define the API endpoint for a non-existent post
+    url = "https://jsonplaceholder.typicode.com/posts/9999"
+
+    # 2. Send a GET request
+    response = requests.get(url)
+
+    # 3. Check the HTTP status code
+    assert response.status_code == 404 # Check if the status code is 404 (Not Found)
