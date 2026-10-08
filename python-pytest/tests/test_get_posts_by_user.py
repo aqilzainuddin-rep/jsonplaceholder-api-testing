@@ -28,3 +28,24 @@ def test_get_posts_by_user():
     # 8. Assert each post has the correct userId
     for post in data:
         assert post["userId"] == params["userId"]
+
+def test_get_posts_by_nonexistent_user():
+
+    # 1. Define the API endpoint
+    url = "https://jsonplaceholder.typicode.com/posts"
+
+    # 2. Define a nonexistent userId
+    params = {
+        "userId": 9999
+    }
+
+    # 3. Send a GET request with query parameters
+    response = requests.get(url, params=params)
+
+    # 4. Read the response body as JSON
+    data = response.json()
+
+    # 5. Display respose for investigation
+    print("Request URL:", response.url)
+    print("Response Status Code:", response.status_code)
+    print("Response Body:", data)
