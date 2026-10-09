@@ -45,7 +45,8 @@ def test_get_posts_by_nonexistent_user():
     # 4. Read the response body as JSON
     data = response.json()
 
-    # 5. Display respose for investigation
-    print("Request URL:", response.url)
-    print("Response Status Code:", response.status_code)
-    print("Response Body:", data)
+    # 5. Assert that the response status code is 200
+    assert response.status_code == 200
+
+    # 6. Assert the response body is an empty list
+    assert data == []
