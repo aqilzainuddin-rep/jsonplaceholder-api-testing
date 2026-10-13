@@ -72,3 +72,25 @@ def test_get_posts_by_invalid_user():
 
     # 6. Assert the response body is an empty list
     assert data == []
+
+def test_get_posts_by_empty_user():
+
+    # 1. Define the API endpoint
+    url = "https://jsonplaceholder.typicode.com/posts"
+
+    # 2. Define an empty userId
+    params = {
+        "userId": ""
+    }
+
+    # 3. Send a GET request with query parameters
+    response = requests.get(url, params=params)
+
+    # 4. Read response body as JSON
+    data = response.json()
+
+    # 5. Assert that the response status code is 200
+    assert response.status_code == 200
+
+    # 6. Assert the response body is an empty list
+    assert data == []
