@@ -1,9 +1,10 @@
 import requests
+from config import BASE_URL
 
 def test_get_post():
 
     # 1. Define the API endpoint
-    url = "https://jsonplaceholder.typicode.com/posts/1"
+    url = f"{BASE_URL}/posts/1"
 
     # 2. Send a GET request
     response = requests.get(url)
