@@ -1,0 +1,30 @@
+# Local dependencies and tool caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+.npm/
+.npm-cache/
+.m2/
+.verification/
+
+# Build output and test reports
+target/
+reports/
+test-results/
+playwright-report/
+blob-report/
+coverage/
+*.log
+
+# Local editor settings and secrets
+.idea/
+.vscode/
+.env
+.env.*
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
