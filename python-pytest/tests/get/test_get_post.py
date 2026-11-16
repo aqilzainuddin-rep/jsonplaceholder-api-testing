@@ -2,16 +2,16 @@
 import requests
 
 def test_get_existing_post():
-    # 1. Endpoint URL for getting all posts
+    # 1. Endpoint URL
     url = "https://jsonplaceholder.typicode.com/posts/1"
 
-    # 2. Send the request. Timeout bounds socket waits.
+    # 2. Send the request. The timeout bounds socket waits.
     response = requests.get(url, timeout=10)
 
-    # 3. Assert the response status code
+    # 3. Check status code of the response
     assert response.status_code == 200
 
-    # 4. Decode the JSON response & assert the response received from server
+    # 4. Decode the response and check what the server returned.
     data = response.json()
     assert data["id"] == 1
     assert data["userId"] == 1
@@ -19,15 +19,15 @@ def test_get_existing_post():
     assert data["body"]
 
 def test_get_missing_post():
-    # 1. Endpoint URL for getting a non-existing post
+    # 1. Endpoint URL
     url = "https://jsonplaceholder.typicode.com/posts/9999"
 
-    # 2. Send the request. Timeout bounds socket waits.
+    # 2. Send the request. The timeout bounds socket waits.
     response = requests.get(url, timeout=10)
 
-    # 3. Assert the response status code
+    # 3. Check status code of the response
     assert response.status_code == 404
 
-    # 4. Decode the JSON response & assert the response received from server
+    # 4. Decode the response and check what the server returned.
     data = response.json()
     assert data == {}
